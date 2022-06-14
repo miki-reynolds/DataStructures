@@ -26,7 +26,7 @@ class MyArray:
 
     def delete(self, index):
         item = self.data[index]
-        self.shiftItems(index)
+        self.shift_items(index)
         return item
     
 
@@ -40,27 +40,10 @@ class MyArray:
         self.length -= 1
     
 
-    def un_shift(self, value):
+    def unshift(self, value):
         for i in range(self.length):
             self.data[i] = self.data[i + 1]
     
         self.data[0] = value
         self.length += 1
 
-
-# strings = ['a', 'b', 'c', 'd'];
-# numbers = [1,2,3,4,5];
-
-# strings.append('e');
-
-
-# strings.pop();
-# strings.pop();
-
-
-# # strings.unshift('x')
-
-
-# strings.splice(2, 0, 'alien');
-
-# print(strings)

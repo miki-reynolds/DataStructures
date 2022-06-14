@@ -1,6 +1,4 @@
 // Implementing Basic Array from Object
-
-
 class MyArray {
     constructor() {
         this.length = 0;
