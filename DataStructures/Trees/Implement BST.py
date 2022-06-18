@@ -169,10 +169,14 @@ class BinarySearchTree:
     def dfs_traverse_in_oder(self, node, result):
         if node is None:
             return result
+        print("Start ",node.data, end=" ")
 
         if node.left:
             self.dfs_traverse_in_oder(node.left, result)
+        print()
+        print(result)
         result.append(node.data)
+
         if node.right:
             self.dfs_traverse_in_oder(node.right, result)
 
@@ -219,8 +223,8 @@ if __name__ == '__main__':
     print(x)
     y = bst.lookup(99)
     print(y)
-    bst.print_tree()
-    print(bst.breadth_first_search_recursive([bst.root], []))
+    # bst.print_tree()
+    # print(bst.breadth_first_search_recursive([bst.root], []))
     print(bst.dfs_traverse_in_oder(bst.root, []))
-    print(bst.dfs_traverse_pre_oder(bst.root, []))
-    print(bst.dfs_traverse_post_oder(bst.root, []))
+    # print(bst.dfs_traverse_pre_oder(bst.root, []))
+    # print(bst.dfs_traverse_post_oder(bst.root, []))
