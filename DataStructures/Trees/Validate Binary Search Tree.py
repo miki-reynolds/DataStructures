@@ -17,67 +17,102 @@ Output: false
 Explanation: The root node's value is 5 but its right child's value is 4.
 '''
 
-def validate_bst(node):
-    if node.root is None:
-        return True
-
-    current_node = node.root
-    count = 0
-    result = []
-
-    while current_node:
-        if current_node.left:
-            if current_node.data >= current_node.left:
-                result.append("True")
-            else:
-                result.append("False")
-            current_node = current_node.left
-
-        if current_node.right:
-            if current_node.data <= current_node.right:
-                result.append("True")
-            else:
-                result.append("False")
-            current_node = current_node.right
-        
-    if "False" in result:
-        return False
-    
-    return True
-
-
+# blueprints for BST
 class Node:
-	def __init__(self, key):
-		self.data = key
-		self.left = None
-		self.right = None
+    def __init__(self, data):
+        self.left = None
+        self.right = None
+        self.data = data
 
-# Returns true if given tree is BST.
-def validate_bst_recursive(root, left=None, right=None):
-	if (root == None) :
-		return True
 
-	if (left != None and root.data <= left.data) :
-		return False
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None
 
-	if (right != None and root.data >= right.data) :
-		return False
+    # InOrder Traversal (We get sorted order of elements in tree)
+    def print_tree(self):
+        if self.root is not None:
+            self.printt(self.root)
 
-	# check recursively for every node.
-	return validate_bst_recursive(root.left, left, root) and validate_bst_recursive(root.right, root, right)
+    def printt(self, current_node):
+        if current_node:
+            self.printt(current_node.left)
+            print(str(current_node.data))
+            self.printt(current_node.right)
+
+    def insert(self, data):
+        new_node = Node(data)
+
+        if self.root is None:
+            self.root = new_node
+        else:
+            current_node = self.root
+            # looping till find where to insert appropriately
+            while True:
+                # left is less (smaller values)
+                if data < current_node.data:
+                    # insert where left has not been established
+                    if current_node.left is None:
+                        current_node.left = new_node
+                        break
+                    # increment current node to the next left
+                    current_node = current_node.left
+                # otherwise, go to the right; right is more (bigger values)
+                else:
+                    # insert where right has not been established
+                    if current_node.right is None:
+                        current_node.right = new_node
+                        break
+                    # increment current node to the next right
+                    else:
+                        current_node = current_node.right
+
+    # InOrder (Sorted):
+    # Draw an arrow down and draw along the outline of the tree from left to right (Prof Abdul)
+    def dfs_traverse_in_oder(self, node, result):
+        if node is None:
+            return result
+        # print("Start ", node.data, end=" ")
+
+        if node.left:
+            self.dfs_traverse_in_oder(node.left, result)
+        # print()
+        # print(result)
+        result.append(node.data)
+
+        if node.right:
+            self.dfs_traverse_in_oder(node.right, result)
+
+        return result
+
+    # validating bst mean we basically need to see if elements from left to right are sorted ascendingly
+    # hence, an inorder DFS is needed
+    # Time O(n) Space O(h) - tree height
+    def validate_bst(self):
+        if self.root is None:
+            return True
+
+        current_node = self.root
+        result = []
+        self.dfs_traverse_in_oder(current_node, result)
+
+        for i in range(len(result) - 1):
+            if result[i] > result[i+1]:
+                return False
+
+        return True
 
 
 if __name__ == '__main__':
-	root = Node(3)
-	root.left = Node(2)
-	root.right = Node(5)
-	root.right.left = Node(1)
-	root.right.right = Node(4)
-	#root.right.left.left = newNode(40)
-	if (isBST(root,None,None)):
-		print("Is BST")
-	else:
-		print("Not a BST")
+    bst = BinarySearchTree()
+    bst.insert(9)
+    bst.insert(4)
+    bst.insert(6)
+    bst.insert(20)
+    bst.insert(90)
+    bst.insert(15)
+    bst.insert(1)
+    # bst.print_tree()
 
-
-    
+    x = bst.validate_bst()
+    print(x)
