@@ -1,3 +1,10 @@
+'''
+a/ BFS usually good for finding the shortest path without weighted edges.
+Special cases for finding shortest paths e.g. Google Maps: Bellman-Ford (negative weights counted - more costly) vs Dijkstra (only positive weight, better complexity)
+
+b/DFS usually good for solving mazes/if a node exists.
+'''
+
 # blueprints for BST
 class Node:
     def __init__(self, data):
