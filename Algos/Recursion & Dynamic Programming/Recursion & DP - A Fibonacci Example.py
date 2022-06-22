@@ -1,8 +1,15 @@
 '''
 Recursion:
 Any loop problems can be done in recursion and vice versa.
+
+https://www.geeksforgeeks.org/types-of-recursions/
 - Types of recursion:
 1. Direct Recursion (4 subtypes)
+a. Tail Recursion
+b. Head Recursion
+c. Tree Recursion
+d. Nested Recursion
+
 2. Indirect Recursion
 '''
 
@@ -20,6 +27,7 @@ https://realpython.com/lru-cache-python/
 Here is a SOF post on DP_Top_Down (Recursive) vs DP_Bottom_Up (Loop) when it comes to Time & Space Complexity.
 https://stackoverflow.com/questions/53740511/dynamic-programming-recursionmemoization-vs-looplist
 '''
+
 
 # For Fibonacci Sequence and similar problems, remember to ask interviewers if they include 0 at the beginning.
 # 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233
@@ -47,6 +55,7 @@ def fibonacci_dp():
 
 
 # LRU-CACHE method - the Top-Down Dynamic Programming Method
+
 from functools import lru_cache
 
 @lru_cache
