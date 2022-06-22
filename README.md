@@ -3,13 +3,14 @@
 
 <h5 align="center">Bestseller Udemy course and recommended by the Tech Interview Handbook.</h5>
   
-### Course offers:
-- Ace coding interviews given by some of the top tech companies
-- Become more confident and prepared for your next coding interview
-- Learn, implement, and use different Data Structures
-- Learn, implement and use different Algorithms
-- Get more interviews
-- Professionally handle offers and negotiate raises
-- Become a better developer by mastering computer science fundamentals
+### What I've Learnt:
+- Arrays, Stacks/Queues, Hash Tables/Maps, Linked Lists (Singly & Doubly), Trees, Graphs
+- Recursion, Sorting, Searching, Breadth Search First, Depth First Search (In-Order, Pre-Order and Post-Order) and Dynamic Programming
+
+<br />
+
+### What I've Done & Will Accomplish:
+I've attempted to implement everything in 2 languages: Python and JavaScript.
+I'll continue to refactor my code and implement more in JavaScript as right now, the majority of code is still in Python for less verbage.
 
 
