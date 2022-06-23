@@ -1,4 +1,6 @@
-# Implementing Basic Array from Object/Dictionary/Hash Map
+# Implementing Basic Array from Object
+
+
 class MyArray:
     def __init__(self):
         self.length = 0
@@ -44,40 +46,4 @@ class MyArray:
     
         self.data[0] = value
         self.length += 1
-
-
-'''
-Common methods e.g. reverse, merge, insert
-'''
-
-# Reverse Array Function
-def reverse(array):
-    length = len(array)
-    
-    if not length:
-        return "Empty Array"
-
-    # We only loop through half to avoid a 360deg swapping
-    # Even if the array's length is odd, the middle number remains unchanged in position, i.e. think of horizontal symmetry.
-    for i in range(length//2):
-        array[i], array[-i-1] = array[-i-1], array[i]
-    return array
-
-
-# Insert Function
-def insert(array, pos, num):    
-    array.append(num)
-    length = len(array)
-
-    for i in range(length-1, pos, -1):
-        array[i] = array[i-1]
-
-    array[pos] = num
-    return array
-
-
-if __name__ == '__main__':
-    print(reverse([1, 2, 3, 4, 5]))
-    print(insert([0, 1, 2, 3, 4 ,5], 3, 6))
-    # [0, 1, 2, 6, 3, 4 ,5]
 
